@@ -10,16 +10,16 @@ class MainWindow(QMainWindow):
                 self.setWindowTitle("Bank of Oakland: Account Creation")
                 self.setFixedSize(400, 550) #(x, y, width, height)
                 self.setWindowIcon(QIcon("placeholder.jpg")) #File must be in the same directory
-        
+        #Declorations
                 self.centralwidget = QWidget(self)
+                self.checkBox = QCheckBox(self.centralwidget)
                 self.userEntry = QTextEdit(self.centralwidget)
                 self.passEntry = QTextEdit(self.centralwidget)
-                self.createBtn = QPushButton(self.centralwidget)
-                self.userLbl = QLabel(self.centralwidget)
                 self.firstEntry = QTextEdit(self.centralwidget)
                 self.lastEntry = QTextEdit(self.centralwidget)
                 self.birthEntry = QTextEdit(self.centralwidget)
-                self.checkBox = QCheckBox(self.centralwidget)
+                self.emailEntry = QTextEdit(self.centralwidget)
+                self.createBtn = QPushButton(self.centralwidget)
                 self.cancelBtn = QPushButton(self.centralwidget)
                 self.passLbl = QLabel(self.centralwidget)
                 self.firstLbl = QLabel(self.centralwidget)
@@ -27,13 +27,15 @@ class MainWindow(QMainWindow):
                 self.emailLbl = QLabel(self.centralwidget)
                 self.label = QLabel(self.centralwidget)
                 self.titleLbl = QLabel(self.centralwidget)
-                self.emailEntry = QTextEdit(self.centralwidget)
                 self.lastLbl = QLabel(self.centralwidget)
+                self.userLbl = QLabel(self.centralwidget)
                 self.setCentralWidget(self.centralwidget)
 
                 self.initUI()
 
         def initUI(self):
+        
+        #Placements and attributes
                 self.userEntry.setGeometry(160, 60, 201, 41)
                 self.passEntry.setGeometry(160, 120, 201, 41)
                 self.createBtn.setGeometry(20, 440, 121, 31)
@@ -58,6 +60,16 @@ class MainWindow(QMainWindow):
                 self.emailEntry.setGeometry(160, 360, 201, 41)
                 self.lastLbl.setGeometry(20, 240, 111, 41)
                 self.lastLbl.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        #
+
+        def createClick():
+                
+                pass
+
+        def backClick():
+
+                pass
 
                 
 

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>BankofOakland</class>
+ <widget class="QMainWindow" name="BankofOakland">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>550</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="appLogo">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>19</y>
+      <width>201</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: blue;</string>
+    </property>
+    <property name="text">
+     <string>OU Bank</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="userEntry">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>300</y>
+      <width>201</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="passEntry">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>380</y>
+      <width>201</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="loginBtn">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>450</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="welcomeLbl">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>250</y>
+      <width>201</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+    <property name="scaledContents">
+     <bool>false</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="STATETEXTLOCATION">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>490</y>
+      <width>121</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="createBtn">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>510</y>
+      <width>111</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="usrLbl">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>280</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="passLbl">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>360</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

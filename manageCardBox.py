@@ -1,48 +1,50 @@
+
+
 ### !!!NOTE!!! ###
-#None of this actually works yet, needs to be formated
+#This is if we have time to add these functions, this was mainly added for the "delete" function 
 
-class Ui_self(object):
-    def setupUi(self, self):
-        if self.objectName():
-            self.setObjectName(u"self")
-        self.resize(254, 247)
-        self.centralwidget = QWidget(self)
-        self.centralwidget.setObjectName(u"centralwidget")
-        self.lockBtn = QPushButton(self.centralwidget)
-        self.lockBtn.setObjectName(u"lockBtn")
-        self.lockBtn.setGeometry(QRect(20, 100, 141, 23))
-        self.unlockCkBx = QCheckBox(self.centralwidget)
-        self.unlockCkBx.setObjectName(u"unlockCkBx")
-        self.unlockCkBx.setGeometry(QRect(130, 180, 111, 61))
-        self.deleteBtn = QPushButton(self.centralwidget)
-        self.deleteBtn.setObjectName(u"deleteBtn")
-        self.deleteBtn.setGeometry(QRect(20, 140, 141, 23))
-        self.okBtn = QPushButton(self.centralwidget)
-        self.okBtn.setObjectName(u"okBtn")
-        self.okBtn.setGeometry(QRect(40, 200, 75, 23))
-        self.renameBtn = QPushButton(self.centralwidget)
-        self.renameBtn.setObjectName(u"renameBtn")
-        self.renameBtn.setGeometry(QRect(20, 20, 75, 23))
-        self.renameInputReciever = QLineEdit(self.centralwidget)
-        self.renameInputReciever.setObjectName(u"renameInputReciever")
-        self.renameInputReciever.setGeometry(QRect(120, 20, 113, 20))
-        self.cleanBtn = QPushButton(self.centralwidget)
-        self.cleanBtn.setObjectName(u"cleanBtn")
-        self.cleanBtn.setGeometry(QRect(20, 60, 141, 23))
-        self.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(self)
+import sys, os
+from PyQt5.QtWidgets import *
+##Libraries used##: QApplication, QMainWindow, QLabel, QWidget, QVBoxLayout, QHBoxLayout, QGridLayout, QPushButton, QLineEdit, QSizePolicy
+from PyQt5.QtGui import QIcon, QFont, QPixmap
+from PyQt5.QtCore import Qt
 
-        QMetaObject.connectSlotsByName(self)
-    # setupUi
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Bank of Oakland: Manage Card")
+        self.setFixedSize(250, 250) #(x, y, width, height)
+        self.setWindowIcon(QIcon("placeholder.jpg")) #File must be in the same directory
 
-    def retranslateUi(self, self):
-        self.setWindowTitle(QCoreApplication.translate("self", u"Manage Card", None))
-        self.lockBtn.setText(QCoreApplication.translate("self", u"Lock Card", None))
-        self.unlockCkBx.setText(QCoreApplication.translate("self", u"Unlock Options", None))
-        self.deleteBtn.setText(QCoreApplication.translate("self", u"Delete Card", None))
-        self.okBtn.setText(QCoreApplication.translate("self", u"Ok", None))
-        self.renameBtn.setText(QCoreApplication.translate("self", u"Rename", None))
-        self.cleanBtn.setText(QCoreApplication.translate("self", u"Clean History", None))
-    # retranslateUi
+        #Declare
+        self.lockBtn = QPushButton("Lock Card", self)
+        self.lockBtn.setGeometry(20, 100, 141, 23)
 
+        self.unlockCkBx = QCheckBox("Unlock Options", self)
+        self.unlockCkBx.setGeometry(130, 180, 111, 61)
+
+        self.deleteBtn = QPushButton("Delete Card", self)
+        self.deleteBtn.setGeometry(20, 140, 141, 23)
+
+        self.okBtn = QPushButton("Ok", self)
+        self.okBtn.setGeometry(40, 200, 75, 23)
+
+        self.renameBtn = QPushButton("Rename", self)
+        self.renameBtn.setGeometry(20, 20, 75, 23)
+
+        self.renameInputReciever = QLineEdit(self)
+        self.renameInputReciever.setGeometry(120, 20, 113, 20)
+        
+        self.cleanBtn = QPushButton("Clean History", self)
+        self.cleanBtn.setGeometry(20, 60, 141, 23)
+
+
+def main():
+        app = QApplication(sys.argv)
+        window = MainWindow()
+        window.show()
+        sys.exit(app.exec_())
+
+if __name__ == "__main__":
+        main()

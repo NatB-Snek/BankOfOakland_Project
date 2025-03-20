@@ -10,7 +10,14 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("Bank of Oakland: Account Creation")
         self.setFixedSize(400, 550) #(x, y, width, height)
         self.setWindowIcon(QIcon("placeholder.jpg")) #File must be in the same directory
+        self.font = QFont()
 
+        self.addBtn = QPushButton("New Card", self)
+        self.titleLbl = QLabel("Bank of Oakland \nB O O",self)
+        self.lbl2 = QLabel("Cards in the name of: " + "<User Name>",self)
+
+
+    #List
         self.numberOfCards = 5 #SQL STATEMENT NEEDED
 
         self.formLayout = QFormLayout()
@@ -23,6 +30,17 @@ class MainWindow(QMainWindow):
         self.initUI()
 
     def initUI(self):
+        self.addBtn.setGeometry(140, 480, 121, 31)
+        self.titleLbl.setGeometry(106, 20, 191, 51)
+        self.font.setPointSize(16)
+        self.titleLbl.setFont(self.font)
+        self.titleLbl.setLayoutDirection(Qt.LeftToRight)
+        self.titleLbl.setAlignment(Qt.AlignCenter)
+        self.titleLbl.setStyleSheet("font-weight: bold;")
+        self.lbl2.setGeometry(50, 85, 300, 21)
+        self.font.setPointSize(11)
+        self.lbl2.setFont(self.font)
+
         self.formLayout.setVerticalSpacing(30)
         self.scroll.setWidget(self.groupBox)
         self.scroll.setWidgetResizable(True)
@@ -37,10 +55,9 @@ class MainWindow(QMainWindow):
         for i in range(self.numberOfCards):
               checkboxList.append(QCheckBox(""))
 
-              buttonList.append(QPushButton(""))
+              buttonList.append(QPushButton("", self))
               currentButton = buttonList[i]
-              currentButton.setText("Hello")
-              currentButton.setHight(1000)
+              currentButton.setText("Make these buttons functional")
 
               self.formLayout.addRow(currentButton)
     

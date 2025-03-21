@@ -29,7 +29,7 @@ class MainWindow(QMainWindow):
 
     #Buttons
         self.loginBtn = QPushButton("Login!", self)
-        self.createBtn = QPushButton("Create new account!", self)
+        self.createBtn = QPushButton("Create account!", self)
 
     #EntryFields
         self.userEntry = QLineEdit(self)
@@ -44,18 +44,44 @@ class MainWindow(QMainWindow):
 #Login UI Initialize
     def initLoginUI(self):
     #Positions all the nodes
-        self.appLogo.setGeometry(100, 50, 200, 180)
+        self.appLogo.setGeometry(100, 40, 201, 181)
         self.appLogo.setAlignment(Qt.AlignCenter)
-        self.welcomeLbl.setGeometry(100, 250, 201, 20)
+        self.userEntry.setGeometry(100, 330, 201, 31)
+        font = QFont()
+        font.setPointSize(10)
+        self.userEntry.setFont(font)
+        self.passEntry.setGeometry(100, 410, 201, 31)
+        self.passEntry.setFont(font)
+        self.loginBtn.setGeometry(140, 460, 121, 31)
+        font1 = QFont()
+        font1.setPointSize(10)
+        font1.setBold(True)
+        font1.setWeight(75)
+        self.loginBtn.setFont(font1)
+        self.welcomeLbl.setEnabled(True)
+        self.welcomeLbl.setGeometry(20, 250, 351, 31)
+        font2 = QFont()
+        font2.setPointSize(20)
+        font2.setBold(True)
+        font2.setWeight(75)
+        self.welcomeLbl.setFont(font2)
+        self.welcomeLbl.setScaledContents(False)
         self.welcomeLbl.setAlignment(Qt.AlignCenter)
-        self.changeable.setGeometry(140, 490, 121, 20)
+        self.changeable.setGeometry(140, 500, 121, 20)
+        font3 = QFont()
+        font3.setPointSize(10)
+        font3.setBold(False)
+        font3.setItalic(True)
+        font3.setWeight(50)
+        self.changeable.setFont(font3)
         self.changeable.setAlignment(Qt.AlignCenter)
-        self.userEntry.setGeometry(100, 300, 201, 41)
-        self.passEntry.setGeometry(100, 380, 201, 41)
-        self.loginBtn.setGeometry(140, 450, 121, 31)
-        self.createBtn.setGeometry(270, 510, 111, 23)
-        self.usrLbl.setGeometry(100, 280, 47, 13)
-        self.passLbl.setGeometry(100, 360, 47, 13)
+        self.createBtn.setGeometry(290, 512, 91, 21)
+        self.usrLbl.setGeometry(100, 310, 201, 16)
+        font4 = QFont()
+        font4.setPointSize(12)
+        self.usrLbl.setFont(font4)
+        self.passLbl.setGeometry(100, 390, 201, 16)
+        self.passLbl.setFont(font4)
 
     #Attribute setters
         #Image retriever

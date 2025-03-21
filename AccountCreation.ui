@@ -16,6 +16,9 @@
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::ActionsContextMenu</enum>
+  </property>
   <property name="windowTitle">
    <string>BOO Account Creation</string>
   </property>
@@ -27,10 +30,24 @@
     <property name="geometry">
      <rect>
       <x>160</x>
-      <y>60</y>
+      <y>70</y>
       <width>201</width>
-      <height>41</height>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="midLineWidth">
+     <number>0</number>
+    </property>
+    <property name="placeholderText">
+     <string>Test Font</string>
     </property>
    </widget>
    <widget class="QTextEdit" name="passEntry">
@@ -39,8 +56,13 @@
       <x>160</x>
       <y>120</y>
       <width>201</width>
-      <height>41</height>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
     </property>
    </widget>
    <widget class="QPushButton" name="createBtn">
@@ -52,6 +74,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string>Create!</string>
     </property>
@@ -60,10 +87,15 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>60</y>
+      <y>70</y>
       <width>111</width>
-      <height>41</height>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Username:</string>
@@ -76,30 +108,45 @@
     <property name="geometry">
      <rect>
       <x>160</x>
-      <y>180</y>
+      <y>220</y>
       <width>201</width>
-      <height>41</height>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
     </property>
    </widget>
    <widget class="QTextEdit" name="lastEntry">
     <property name="geometry">
      <rect>
       <x>160</x>
-      <y>240</y>
+      <y>270</y>
       <width>201</width>
-      <height>41</height>
+      <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
    </widget>
-   <widget class="QTextEdit" name="birthEntry">
+   <widget class="QTextEdit" name="emailEntry">
     <property name="geometry">
      <rect>
       <x>160</x>
-      <y>300</y>
+      <y>370</y>
       <width>201</width>
-      <height>41</height>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
     </property>
    </widget>
    <widget class="QCheckBox" name="checkBox">
@@ -110,6 +157,11 @@
       <width>111</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Agree to tos</string>
@@ -124,6 +176,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string>Cancel</string>
     </property>
@@ -134,8 +191,13 @@
       <x>20</x>
       <y>120</y>
       <width>111</width>
-      <height>41</height>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Password:</string>
@@ -148,10 +210,15 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>180</y>
+      <y>220</y>
       <width>111</width>
-      <height>41</height>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>First Name:</string>
@@ -164,10 +231,15 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>300</y>
+      <y>320</y>
       <width>111</width>
-      <height>41</height>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Birthday:</string>
@@ -180,10 +252,15 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>360</y>
+      <y>370</y>
       <width>111</width>
-      <height>41</height>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Email:</string>
@@ -192,7 +269,7 @@
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="changeableLbl">
     <property name="geometry">
      <rect>
       <x>160</x>
@@ -201,6 +278,11 @@
       <height>21</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string>changeable</string>
     </property>
@@ -208,11 +290,18 @@
    <widget class="QLabel" name="titleLbl">
     <property name="geometry">
      <rect>
-      <x>126</x>
-      <y>20</y>
+      <x>130</x>
+      <y>30</y>
       <width>141</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>Account Creation</string>
@@ -221,27 +310,73 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QTextEdit" name="emailEntry">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>360</y>
-      <width>201</width>
-      <height>41</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QLabel" name="lastLbl">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>240</y>
+      <y>270</y>
       <width>111</width>
-      <height>41</height>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Last Name:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QDateEdit" name="birthdayDate">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>320</y>
+      <width>201</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="passConfEntry">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>170</y>
+      <width>201</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+   </widget>
+   <widget class="QLabel" name="passConfLbl">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>170</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Confirm Password:</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

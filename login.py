@@ -4,7 +4,9 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QIcon, QFont, QPixmap
 from PyQt5.QtCore import Qt
 
-import accountCreation 
+import accountCreation
+import cardSelection
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -43,7 +45,10 @@ class MainWindow(QMainWindow):
 
 #Login UI Initialize
     def initLoginUI(self):
-    #Positions all the nodes
+    #Attribute setters
+        iconIMG = QPixmap("placeholder.jpg")
+        self.appLogo.setPixmap(iconIMG)
+        self.appLogo.setScaledContents(True)
         self.appLogo.setGeometry(100, 40, 201, 181)
         self.appLogo.setAlignment(Qt.AlignCenter)
         self.userEntry.setGeometry(100, 330, 201, 31)
@@ -83,36 +88,44 @@ class MainWindow(QMainWindow):
         self.passLbl.setGeometry(100, 390, 201, 16)
         self.passLbl.setFont(font4)
 
-    #Attribute setters
-        #Image retriever
-        iconIMG = QPixmap("placeholder.jpg")
-        self.appLogo.setPixmap(iconIMG)
-        self.appLogo.setScaledContents(True)
-
         #Button mapping
         self.loginBtn.clicked.connect(self.loginPress)
         self.createBtn.clicked.connect(self.newPress)
-
-
 
 #New Account UI Initialize
 
 #Button functions
     def loginPress(self):
-          username = self.userEntry.text()    
-          password = self.passEntry.text()
+        username = self.userEntry.text()    
+        password = self.passEntry.text()
           
-          #Testing stuff
-          self.changeable.setText("Pressed")
-          print(str(username) + " " + str(password))
+        ### TODO: Verify username and password with SQL database###
+        #This is also where we need to add a vulerability
+        def userValidation(username, password):
+             if username and password:
+                  return True
+             return False
+        # Temporary check, replace with database verification
+
+        if userValidation(username, password):
+            print(f"Logging in as: {username}")
+
+            # Open cardSelection window
+            self.cardSelectionWindow = cardSelection.MainWindow()  # Make sure to import cardSelection
+            self.cardSelectionWindow.show()
+            # Close login window
+            self.close()
+        else:
+            self.changeable.setText("Invalid login")
     
     def newPress(self):
-          accountCreation.main()
+        self.accountCreationWindow = accountCreation.MainWindow()  # Create an instance of the account creation window
+        self.accountCreationWindow.show()
 
 def main():
         app = QApplication(sys.argv)
-        window = MainWindow()
-        window.show()
+        loginWindow = MainWindow()
+        loginWindow.show()
         sys.exit(app.exec_())
 
 if __name__ == "__main__":

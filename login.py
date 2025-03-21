@@ -4,6 +4,8 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QIcon, QFont, QPixmap
 from PyQt5.QtCore import Qt
 
+import accountCreation 
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -79,7 +81,7 @@ class MainWindow(QMainWindow):
           print(str(username) + " " + str(password))
     
     def newPress(self):
-          print("funtionality soon")
+          accountCreation.main()
 
 def main():
         app = QApplication(sys.argv)

@@ -4,7 +4,8 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QIcon, QFont, QPixmap
 from PyQt5.QtCore import Qt
 
-class MainWindow(QMainWindow):
+
+class MainWindow(QWidget):
         def __init__(self):
                 super().__init__()
                 self.setWindowTitle("Bank of Oakland: Account Creation")

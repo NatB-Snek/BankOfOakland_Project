@@ -4,21 +4,24 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QIcon, QFont, QPixmap
 from PyQt5.QtCore import Qt
 
+import login
 
-class MainWindow(QWidget):
-        def __init__(self):
+
+class accountWindow(QWidget):
+        def __init__(self, loginWindow):
                 super().__init__()
+                self.loginWindow = loginWindow
                 self.setWindowTitle("Bank of Oakland: Account Creation")
                 self.setFixedSize(400, 550) #(x, y, width, height)
                 self.setWindowIcon(QIcon("placeholder.jpg")) #File must be in the same directory
         #Declorations
-                self.userEntry = QTextEdit(self)
-                self.passEntry = QTextEdit(self)
-                self.firstEntry = QTextEdit(self)
-                self.lastEntry = QTextEdit(self)
+                self.userEntry = QLineEdit(self)
+                self.passEntry = QLineEdit(self)
+                self.firstEntry = QLineEdit(self)
+                self.lastEntry = QLineEdit(self)
                 self.birthdayDate = QDateEdit(self)
-                self.emailEntry = QTextEdit(self)
-                self.passConfEntry = QTextEdit(self)
+                self.emailEntry = QLineEdit(self)
+                self.passConfEntry = QLineEdit(self)
 
                 self.checkBox = QCheckBox("Agree to Terms of Service", self)
                 self.createBtn = QPushButton("Create!", self)
@@ -32,12 +35,22 @@ class MainWindow(QWidget):
                 self.lastLbl = QLabel("Last Name:", self)
                 self.birthLbl = QLabel("Birthday:", self)
                 self.emailLbl = QLabel("Email:", self)
-                self.changeableLbl = QLabel("For demo purposes, \nbirthday and email arent used", self)
+                self.changeableLbl = QLabel("", self)
+
+        #Variables
+                self.user = ""
+                self.password = ""
+                self.confirmPassword = ""
+
+                #These really arnt that neccecary but just in case
+                self.first = ""
+                self.last = ""
+                self.birthday = ""
+                self.email = ""
 
                 self.initUI()
 
         def initUI(self):
-
                 #Set Attriutes
                 self.userEntry.setGeometry(160, 70, 201, 31)
                 font = QFont()
@@ -46,7 +59,7 @@ class MainWindow(QWidget):
                 font.setItalic(False)
                 font.setWeight(50)
                 self.userEntry.setFont(font)
-                self.userEntry.setMidLineWidth(0)
+                #self.userEntry.setMidLineWidth(0)
                 self.passEntry.setGeometry(160, 120, 201, 31)
                 font1 = QFont()
                 font1.setPointSize(10)
@@ -100,26 +113,65 @@ class MainWindow(QWidget):
                 self.passConfLbl.setFont(font1)
                 self.passConfLbl.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        #Placements and attributes
-                
+                self.cancelBtn.clicked.connect(self.backClick)
+                self.createBtn.clicked.connect(self.createClick)
 
-        #
+        def createClick(self):
+                user = self.userEntry.text()
+                password = self.passEntry.text()
+                confirmPassword = self.passConfEntry.text()
+                #These really arnt that neccecary but just in case
+                first = self.firstEntry.text()
+                last = self.lastEntry.text()
+                birthday = self.birthdayDate.date().toString("MM-dd-yyyy")
+                email = self.emailEntry.text()
 
-        def createClick():
-                
+                ###SQL check function here###
+                check1 = False
+
+                ###                       ###
+
+                #Concept; if user =/= user in database, fail
+                if not check1:
+                        print("check1 pass")
+                        check1 = True
+                else:
+                        print("check1 fail")
+                        self.changeableLbl.setText("Username Already Exists")
+                        #return
+
+                check2 = False
+                if password == confirmPassword:
+                        print("check2 pass")
+                        check2 = True
+                else:
+                        print("check2 fail")
+                        self.changeableLbl.setText("Passwords Dont Match!")
+                        check2 = False
+                       
+
+
+                if check1 and check2:
+                        ###Write to SQL###
+                        self.loginWindow.accountFlag(user)
+                        self.close()
+                        ###            ###
+                        pass
+                #This will be in the if above
+                        
+        def backClick(self):
+                self.close()
                 pass
-
-        def backClick():
-
-                pass
-
-                
 
 def main():
-        app = QApplication(sys.argv)
-        window = MainWindow()
-        window.show()
-        sys.exit(app.exec_())
+
+        #app = QApplication(sys.argv)
+        #window = accountWindow()
+        #window.show()
+        #sys.exit(app.exec_())
+
+        #return window
+        pass
 
 if __name__ == "__main__":
         main()

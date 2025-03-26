@@ -24,7 +24,7 @@
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>19</y>
+      <y>40</y>
       <width>201</width>
       <height>181</height>
      </rect>
@@ -46,30 +46,47 @@
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>300</y>
+      <y>330</y>
       <width>201</width>
-      <height>41</height>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
     </property>
    </widget>
    <widget class="QTextEdit" name="passEntry">
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>380</y>
+      <y>410</y>
       <width>201</width>
-      <height>41</height>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
     </property>
    </widget>
    <widget class="QPushButton" name="loginBtn">
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>450</y>
+      <y>460</y>
       <width>121</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>PushButton</string>
@@ -81,11 +98,18 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>100</x>
+      <x>20</x>
       <y>250</y>
-      <width>201</width>
+      <width>351</width>
       <height>21</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>TextLabel</string>
@@ -101,36 +125,52 @@
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>490</y>
+      <y>500</y>
       <width>121</width>
       <height>20</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <italic>true</italic>
+      <bold>false</bold>
+     </font>
+    </property>
     <property name="text">
      <string>TextLabel</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QPushButton" name="createBtn">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>510</y>
-      <width>111</width>
-      <height>23</height>
+      <x>290</x>
+      <y>512</y>
+      <width>91</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Create Account!</string>
     </property>
    </widget>
    <widget class="QLabel" name="usrLbl">
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>280</y>
-      <width>47</width>
-      <height>13</height>
+      <y>310</y>
+      <width>201</width>
+      <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>TextLabel</string>
@@ -140,10 +180,15 @@
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>360</y>
-      <width>47</width>
-      <height>13</height>
+      <y>390</y>
+      <width>201</width>
+      <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>TextLabel</string>

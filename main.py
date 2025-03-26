@@ -19,7 +19,7 @@ class MainWindow(QMainWindow):
         self.balanceStaticLbl = QLabel("Balance:",self)
         self.balanceLbl = QLabel("X,XXX,XXX", self) #This wont be static
         self.accountStaticLbl = QLabel("Account Number:",self)
-        self.accountInfoLbl = QLabel("<Card name> <Account Holder Name>", self)
+        self.accountInfoLbl = QLabel("<Card Number> <Account Holder Name>", self)
         self.transactionsList = QListWidget(self)
         self.transactionsStaticLbl = QLabel("Transactions:",self)
         self.depositBtn = QPushButton("Deposit", self)

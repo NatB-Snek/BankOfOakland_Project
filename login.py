@@ -111,7 +111,7 @@ class MainWindow(QMainWindow):
             print(f"Logging in as: {username}")
 
             # Open cardSelection window
-            self.cardSelectionWindow = cardSelection.MainWindow()  # Make sure to import cardSelection
+            self.cardSelectionWindow = cardSelection.cardSelection()  # Make sure to import cardSelection
             self.cardSelectionWindow.show()
             # Close login window
             self.close()
@@ -119,8 +119,11 @@ class MainWindow(QMainWindow):
             self.changeable.setText("Invalid login")
     
     def newPress(self):
-        self.accountCreationWindow = accountCreation.MainWindow()  # Create an instance of the account creation window
+        self.accountCreationWindow = accountCreation.accountWindow(self)  # Create an instance of the account creation window
         self.accountCreationWindow.show()
+
+    def accountFlag(self, username):
+         self.changeable.setText("Welcome " + username + "!")
 
 def main():
         app = QApplication(sys.argv)

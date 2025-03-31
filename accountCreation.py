@@ -65,6 +65,11 @@ class accountWindow(QWidget):
                 font1.setPointSize(10)
                 self.passEntry.setFont(font1)
                 self.createBtn.setGeometry(20, 440, 121, 31)
+                self.passConfEntry.setGeometry(160, 170, 201, 31)
+                self.passConfEntry.setFont(font1)
+                self.passConfLbl.setGeometry(20, 170, 111, 31)
+                self.passConfLbl.setFont(font1)
+                self.passConfLbl.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
                 font2 = QFont()
                 font2.setPointSize(12)
                 self.createBtn.setFont(font2)
@@ -107,12 +112,6 @@ class accountWindow(QWidget):
                 self.lastLbl.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
                 self.birthdayDate.setGeometry(160, 320, 201, 31)
                 self.birthdayDate.setFont(font1)
-                self.passConfEntry.setGeometry(160, 170, 201, 31)
-                self.passConfEntry.setFont(font1)
-                self.passConfLbl.setGeometry(20, 170, 111, 31)
-                self.passConfLbl.setFont(font1)
-                self.passConfLbl.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
                 self.cancelBtn.clicked.connect(self.backClick)
                 self.createBtn.clicked.connect(self.createClick)
 
@@ -156,12 +155,10 @@ class accountWindow(QWidget):
                         self.loginWindow.accountFlag(user)
                         self.close()
                         ###            ###
-                        pass
                 #This will be in the if above
                         
         def backClick(self):
                 self.close()
-                pass
 
 def main():
 

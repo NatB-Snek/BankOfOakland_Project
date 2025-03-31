@@ -1,11 +1,10 @@
-### !!!NOTE!!! ###
-#None of this actually works yet, needs to be formated (at least after line 26)
-
 import sys, os
 from PyQt5.QtWidgets import *
 ##Libraries used##: QApplication, QMainWindow, QLabel, QWidget, QVBoxLayout, QHBoxLayout, QGridLayout, QPushButton, QLineEdit, QSizePolicy
 from PyQt5.QtGui import QIcon, QFont, QPixmap
 from PyQt5.QtCore import Qt, QRect
+
+from manageCardBox import MainWindow as ManageCardWindow
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -14,8 +13,9 @@ class MainWindow(QMainWindow):
         self.setFixedSize(830, 520) #(x, y, width, height)
         self.setWindowIcon(QIcon("placeholder.jpg")) #File must be in the same directory
     
-        #DeclareValues
 
+        self.balance = 1000.00 #Will be grabbed from SQL
+        #DeclareValues
         self.balanceStaticLbl = QLabel("Balance:",self)
         self.balanceLbl = QLabel("X,XXX,XXX", self) #This wont be static
         self.accountStaticLbl = QLabel("Account Number:",self)
@@ -31,6 +31,12 @@ class MainWindow(QMainWindow):
         self.withdrawBtn = QPushButton("Withdraw", self)
 
         self.initUi()
+        self.update_balance_display()
+
+        self.depositBtn.clicked.connect(self.handle_deposit)
+        self.withdrawBtn.clicked.connect(self.handle_withdraw)
+        self.transferBtn.clicked.connect(self.handle_transfer)
+        self.manageCardBtn.clicked.connect(self.open_manage_card)
 
     
     def initUi(self):
@@ -70,6 +76,40 @@ class MainWindow(QMainWindow):
         self.transferBtn.setFont(font3)
         self.manageCardBtn.setGeometry(QRect(40, 330, 331, 51))
         self.manageCardBtn.setFont(font3)
+
+    def update_balance_display(self):
+        self.balanceLbl.setText(f"${self.balance:,.2f}")
+
+    def handle_deposit(self):
+        amount, ok = QInputDialog.getDouble(self, "Deposit", "Enter amount to deposit:", decimals=2)
+        if ok and amount > 0:
+            self.balance += amount
+            self.update_balance_display()
+            self.transactionsList.addItem(f"Deposited ${amount:,.2f}")
+
+    def handle_withdraw(self):
+        amount, ok = QInputDialog.getDouble(self, "Withdraw", "Enter amount to withdraw:", decimals=2)
+        if ok and amount > 0:
+            if amount > self.balance:
+                QMessageBox.warning(self, "Error", "Insufficient funds.")
+            else:
+                self.balance -= amount
+                self.update_balance_display()
+                self.transactionsList.addItem(f"Withdrew ${amount:,.2f}")
+
+    def handle_transfer(self):
+        amount, ok = QInputDialog.getDouble(self, "Transfer", "Enter amount to transfer:", decimals=2)
+        if ok and amount > 0:
+            if amount > self.balance:
+                QMessageBox.warning(self, "Error", "Insufficient funds for transfer.")
+            else:
+                self.balance -= amount
+                self.update_balance_display()
+                self.transactionsList.addItem(f"Transferred ${amount:,.2f}")
+
+    def open_manage_card(self):
+        self.manage_window = ManageCardWindow()
+        self.manage_window.show()
 
 
 def main():

@@ -4,6 +4,10 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QIcon, QFont, QPixmap
 from PyQt5.QtCore import Qt
 
+import mysql.connector
+import sqlite3
+import hashlib
+
 import login
 
 
@@ -119,44 +123,43 @@ class accountWindow(QWidget):
                 user = self.userEntry.text()
                 password = self.passEntry.text()
                 confirmPassword = self.passConfEntry.text()
-                #These really arnt that neccecary but just in case
                 first = self.firstEntry.text()
                 last = self.lastEntry.text()
                 birthday = self.birthdayDate.date().toString("MM-dd-yyyy")
                 email = self.emailEntry.text()
 
-                ###SQL check function here###
-                check1 = False
+                check1 = True
+                check2 = password == confirmPassword
 
-                ###                       ###
-
-                #Concept; if user =/= user in database, fail
-                if not check1:
-                        print("check1 pass")
-                        check1 = True
-                else:
-                        print("check1 fail")
-                        self.changeableLbl.setText("Username Already Exists")
-                        #return
-
-                check2 = False
-                if password == confirmPassword:
-                        print("check2 pass")
-                        check2 = True
-                else:
-                        print("check2 fail")
-                        self.changeableLbl.setText("Passwords Dont Match!")
-                        check2 = False
-                       
-
+                if not check2:
+                        self.changeableLbl.setText("Passwords Don't Match!")
+                        return
 
                 if check1 and check2:
-                        ###Write to SQL###
-                        self.loginWindow.accountFlag(user)
-                        self.close()
-                        ###            ###
-                #This will be in the if above
-                        
+                        try:
+                                conn = sqlite3.connect("bank.db")
+                                cursor = conn.cursor()
+
+                        # Insecure raw SQL formatting (intentional for SQL injection demo)
+                                raw_query = f
+                                """
+                                INSERT INTO users (username, password_hash, email, phone, address, birthday)
+                                VALUES ('{user}', '{password}', '{email}', '000-000-0000', '{first} {last}', '{birthday}')
+                                """
+                                print("[DEBUG] Executing:", raw_query)
+                                cursor.execute(raw_query)
+                                conn.commit()
+
+                                self.loginWindow.accountFlag(user)
+                                self.close()
+                        except sqlite3.Error as err:
+                                print("Error during user creation:", err)
+                                self.changeableLbl.setText("Database Error")
+                        finally:
+                                if conn:
+                                        cursor.close()
+                                        conn.close()
+
         def backClick(self):
                 self.close()
 

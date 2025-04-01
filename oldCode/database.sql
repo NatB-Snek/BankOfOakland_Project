@@ -36,7 +36,7 @@ CREATE TABLE transactions (
     FOREIGN KEY (card_id) REFERENCES cards(id) ON DELETE CASCADE
 );
 
---Data for testing
+-- Data for testing
 INSERT INTO users (username, password_hash, email, phone, address, birthday) 
 VALUES ('user1', '123', 'user@oakland.edu', '1234567890', '123 Test St', '2003-04-25');
 

@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QIcon, QFont, QPixmap
 from PyQt5.QtCore import Qt
 
+import db
 import accountCreation
 import cardSelection
 
@@ -126,6 +127,7 @@ class MainWindow(QMainWindow):
          self.changeable.setText("Welcome " + username + "!")
 
 def main():
+        db.initializeDB()
         app = QApplication(sys.argv)
         loginWindow = MainWindow()
         loginWindow.show()

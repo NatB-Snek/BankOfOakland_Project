@@ -4,7 +4,6 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QIcon, QFont, QPixmap
 from PyQt5.QtCore import Qt
 
-import mysql.connector
 import sqlite3
 import hashlib
 
@@ -141,11 +140,7 @@ class accountWindow(QWidget):
                                 cursor = conn.cursor()
 
                         # Insecure raw SQL formatting (intentional for SQL injection demo)
-                                raw_query = f
-                                """
-                                INSERT INTO users (username, password_hash, email, phone, address, birthday)
-                                VALUES ('{user}', '{password}', '{email}', '000-000-0000', '{first} {last}', '{birthday}')
-                                """
+                                raw_query = f"INSERT INTO users (username, password_hash, email, firstname, lastname, birthday) VALUES ('{user}', '{password}', '{email}', '{first}', '{last}', '{birthday}')"
                                 print("[DEBUG] Executing:", raw_query)
                                 cursor.execute(raw_query)
                                 conn.commit()
@@ -165,13 +160,12 @@ class accountWindow(QWidget):
 
 def main():
 
-        #app = QApplication(sys.argv)
-        #window = accountWindow()
-        #window.show()
-        #sys.exit(app.exec_())
+        app = QApplication(sys.argv)
+        window = accountWindow()
+        window.show()
+        sys.exit(app.exec_())
 
-        #return window
-        pass
+        return window
 
 if __name__ == "__main__":
         main()

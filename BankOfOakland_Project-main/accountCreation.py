@@ -158,14 +158,10 @@ class accountWindow(QWidget):
             conn = sqlite3.connect(db_file)
             cursor = conn.cursor()
 
-            # --- !!! INTENTIONALLY VULNERABLE SQL QUERY !!! ---
-            # This uses f-string formatting, making it vulnerable to SQL injection.
-            # DO NOT use this method in production code. Use parameterized queries instead.
-            # Storing plain text password here as part of the vulnerability demonstration.
-            raw_query = f"INSERT INTO users (username, password_hash, email, firstname, lastname, birthday) VALUES ('{user}', '{password}', '{email}', '{first}', '{last}', '{birthday}')"
-            print("[VULNERABLE DEBUG] Executing:", raw_query)
-            cursor.execute(raw_query)
-            # --- End Vulnerable Query ---
+            cursor.execute("""
+                INSERT INTO users (username, password_hash, email, firstname, lastname, birthday)
+                VALUES (?, ?, ?, ?, ?, ?)""",
+                (user, password, email, first, last, birthday))
 
             conn.commit() # Commit the changes
 

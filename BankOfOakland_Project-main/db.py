@@ -21,8 +21,6 @@ def initializeDB():
             firstname TEXT,
             lastname TEXT,
             birthday TEXT,
-            address TEXT,
-            phone TEXT UNIQUE,
             email TEXT UNIQUE NOT NULL,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )

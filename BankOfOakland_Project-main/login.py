@@ -62,7 +62,7 @@ class MainWindow(QMainWindow):
     def initLoginUI(self):
         #Attribute setters
         # Ensure placeholder.jpg is in the same directory or provide a full path
-        icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "placeholder.jpg")
+        icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "placeholder.png")
         if os.path.exists(icon_path):
             iconIMG = QPixmap(icon_path)
             self.appLogo.setPixmap(iconIMG)
@@ -134,8 +134,6 @@ class MainWindow(QMainWindow):
             conn = sqlite3.connect(db_file)
             cursor = conn.cursor()
 
-            # --- Fetch User ---
-            # Using parameterization even here is good practice, though the vulnerability is in accountCreation
             cursor.execute("SELECT id, password_hash FROM users WHERE username = ?", (username,))
             user_record = cursor.fetchone()
 
